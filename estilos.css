@@ -224,59 +224,72 @@ svg {
 .haz { 
   position: absolute; 
   z-index: -1; 
-  top: -18%; 
-  left: 58%; 
-  width: 8vw; 
-  height: 105%; 
-  background: var(--amarillo); 
-  opacity: .42; transform: rotate(24deg) translateY(var(--sube)); 
-  transform-origin: center; 
+  top: 0; 
+  left: auto;
+  right: clamp(1rem, 7vw, 8rem); 
+  width: clamp(6rem, 11vw, 11rem); 
+  height: 100%; 
+  background: none;
+  opacity: 1;
+  transform: none;
   overflow: hidden; 
-}
-.cinta { 
-  position:absolute; 
-  top:0; 
-  left:0; 
-  width:100%; 
-  display:flex; 
-  flex-direction:column; 
-  align-items:center; 
-  animation: correr 150s linear infinite; 
-  will-change:transform; 
-}
-.cinta span { 
-  display:flex; 
-  flex-direction:column; 
-  align-items:center; 
-  font-family:"Bebas Neue"; 
-  font-size:clamp(1.1rem,2.1vw,2.2rem); 
-  line-height:1; 
-  letter-spacing:.22em; 
-  color:#ff050500; }
-.cinta b { 
-  writing-mode:vertical-rl; 
-  transform:rotate(180deg); 
-  font-weight:400; 
-  padding:.55em 0; 
-  color:rgb(255, 255, 255);}
-.cinta i { 
-  writing-mode:vertical-rl; 
-  transform:rotate(180deg); 
-  font-style:normal; 
-  padding:.35em 0; 
-  opacity:.5; 
-}
-@keyframes 
- correr 
-{ 
-  from { 
-  transform: translateY(-50%); 
-}
- to { 
-  transform: translateY(0); 
-} 
+  pointer-events: none;
 }
 
+.cinta { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  animation: correr 90s linear infinite; 
+  will-change: transform; 
+}
+
+.cinta span { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  flex-shrink: 0;
+  font-family: "Bebas Neue", sans-serif; 
+  font-size: clamp(4.5rem, 9vw, 9rem); 
+  line-height: .82; 
+  letter-spacing: 0; 
+  color: transparent; 
+  -webkit-text-stroke: 2px #dcbf00a8;
+  text-stroke: 2px #dcbf00a8;
+
+
+}
+
+.cinta b { 
+  writing-mode: vertical-rl; 
+  transform: rotate(180deg); 
+  font-weight: 400; 
+  padding: .16em 0; 
+}
+
+.cinta i { 
+  writing-mode: vertical-rl; 
+  transform: rotate(180deg); 
+  font-style: normal; 
+  padding: .1em 0; 
+  color: #dcbf00a8;
+  -webkit-text-stroke: 0;
+  text-stroke: 0;
+  opacity: .7; 
+}
+
+@keyframes correr { 
+  from { 
+    transform: translateY(50%); 
+  }
+  to { 
+    transform: translateY(0); 
+  } 
+}
 .portada::after { 
   content:""; 
   position:absolute; 
@@ -741,8 +754,9 @@ will-change:transform;
     padding-top:8.5rem; 
   }
   .haz { 
-    left:72%; 
-    width:16vw; 
+    left: auto;
+    right: .4rem; 
+    width: clamp(5rem, 22vw, 7rem); 
   }
   .titulo h1 { 
     font-size:clamp(5rem,26vw,8rem); 
