@@ -753,10 +753,17 @@ will-change:transform;
     min-height:auto; 
     padding-top:8.5rem; 
   }
-  .haz { 
+  .cinta span {
+    font-size: 2.7rem;
+    -webkit-text-stroke: 0.35px #dcbf00;
+  }
+  .haz {
     left: auto;
-    right: .4rem; 
-    width: clamp(5rem, 22vw, 7rem); 
+    right: -25px;
+    width: clamp(5rem, 22vw, 7rem);
+    font-size: 2.5rem;
+  }
+
   }
   .titulo h1 { 
     font-size:clamp(5rem,26vw,8rem); 
@@ -821,7 +828,6 @@ will-change:transform;
   .aro,.punto { 
     display:none; 
   }
-}
 @media (max-width: 430px) { 
   .categorias { 
     grid-template-columns:1fr; 
