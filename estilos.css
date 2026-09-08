@@ -754,8 +754,8 @@ will-change:transform;
     padding-top:8.5rem; 
   }
   .cinta span {
-    opacity: 0.25;
-    font-size: 3.4rem;
+    opacity: 0.4;
+    font-size: 3.6rem;
     -webkit-text-stroke: 0.35px #dcbf00;
   }
   .haz {
