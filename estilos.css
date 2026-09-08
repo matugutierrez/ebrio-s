@@ -756,7 +756,7 @@ will-change:transform;
   .cinta span {
     opacity: 0.45;
     font-size: 5rem;
-    -webkit-text-stroke: 0.35px #dcbf00;
+    -webkit-text-stroke: 0.44px #dcbf00;
   }
   .haz {
     left: auto;
