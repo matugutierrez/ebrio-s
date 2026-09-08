@@ -226,7 +226,7 @@ svg {
   z-index: -1; 
   top: 0; 
   left: auto;
-  right: clamp(1rem, 7vw, 8rem); 
+  right: 138px; 
   width: clamp(6rem, 11vw, 11rem); 
   height: 100%; 
   background: none;
@@ -249,12 +249,13 @@ svg {
 }
 
 .cinta span { 
+  opacity: 0.2;
   display: flex; 
   flex-direction: column; 
   align-items: center; 
   flex-shrink: 0;
   font-family: "Bebas Neue", sans-serif; 
-  font-size: clamp(4.5rem, 9vw, 9rem); 
+  font-size: 10rem; 
   line-height: .82; 
   letter-spacing: 0; 
   color: transparent; 
@@ -433,7 +434,7 @@ svg {
   .escena.visible .persiana span:nth-child(5n){
     transition-delay:.17s
 }
-.universo,.venta,.pedido,.local { 
+.pedidos,.venta,.pedido,.local { 
   padding: clamp(5rem,10vw,10rem) clamp(1.2rem,4vw,4rem); 
   border-top: 1px solid var(--linea); 
   
@@ -763,7 +764,6 @@ will-change:transform;
     right: -20px;
     width: clamp(5rem, 22vw, 7rem);
     font-size: 2.5rem;
-  }
 
   }
   .titulo h1 { 
@@ -829,6 +829,7 @@ will-change:transform;
   .aro,.punto { 
     display:none; 
   }
+  }
 @media (max-width: 430px) { 
   .categorias { 
     grid-template-columns:1fr; 
@@ -857,7 +858,7 @@ will-change:transform;
     max-width:100%; 
     font-size:.54rem; 
   }
-  .pedido,.local,.universo,.venta { 
+  .pedido,.local,.pedidos,.venta { 
     padding-block:5rem; 
   } 
   }
@@ -1286,3 +1287,5 @@ will-change:transform;
 @media (max-width: 430px) { 
   .categoria:not(.abierta) { min-height:120px; }
  }
+
+ 
