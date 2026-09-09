@@ -1717,6 +1717,7 @@ footer a:hover {
   .fila .rubro-producto {
     display: none;
   }
+  
 }
 
 @media (max-width: 430px) {
@@ -1795,4 +1796,30 @@ footer a:hover {
   color: inherit;
   font-family: "Barlow";
   font-size: 1.5rem;
+}
+.bloque-imagen {
+  clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+}
+
+.bloque-imagen::before,
+.bloque-imagen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bloque-imagen::before {
+  background: linear-gradient(to bottom, #0a0a0a, transparent 25%, transparent 70%, #0a0a0a);
+}
+
+.bloque-imagen::after {
+  inset: auto 0 0;
+  height: 35%;
+  background: linear-gradient(to top, #0a0a0a, transparent);
+}
+
+.bloque-imagen img {
+  filter: saturate(.78) contrast(1.08) brightness(.78);
 }
