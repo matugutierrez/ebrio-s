@@ -13,8 +13,8 @@
   }
   mirar();
 
-  var punto = document.querySelector(".punto");
-  var aro = document.querySelector(".aro");
+  var punto = document.querySelector(".cursor-punto");
+  var aro = document.querySelector(".cursor-aro");
   if (punto && aro && fino && !quieto) {
     addEventListener("mousemove", function (e) {
       punto.style.transform = "translate3d(" + e.clientX + "px," + e.clientY + "px,0)";
@@ -24,8 +24,19 @@
     });
   }
 
-  var boton = document.querySelector(".menu");
-  var panel = document.querySelector(".panel");
+  function avance() {
+    var total = document.documentElement.scrollHeight - innerHeight;
+    raiz.style.setProperty("--avance", (total > 0 ? (scrollY / total) * 100 : 0) + "%");
+    raiz.style.setProperty("--sube", scrollY * -0.055 + "px");
+    if (document.body.classList.contains("inicio")) {
+      raiz.style.setProperty("--flujo-inicio", Math.min(scrollY * 0.045, 90) + "px");
+    }
+  }
+  addEventListener("scroll", avance, { passive: true });
+  avance();
+
+  var boton = document.querySelector(".menu-toggle");
+  var panel = document.querySelector(".menu-panel");
   if (boton && panel) {
     function cerrar() {
       boton.classList.remove("abierto");
@@ -49,14 +60,14 @@
 
   document.querySelectorAll(".categoria").forEach(function (caja) {
     var llave = caja.querySelector("button");
-    var vistazo = caja.querySelector(".vistazo");
+    var vistazo = caja.querySelector(".preview-categoria");
     if (!llave || !vistazo) return;
     llave.addEventListener("click", function () {
       var abierta = !caja.classList.contains("abierta");
       document.querySelectorAll(".categoria.abierta").forEach(function (otra) {
         otra.classList.remove("abierta");
         otra.querySelector("button").setAttribute("aria-expanded", "false");
-        otra.querySelector(".vistazo").hidden = true;
+        otra.querySelector(".preview-categoria").hidden = true;
       });
       caja.classList.toggle("abierta", abierta);
       llave.setAttribute("aria-expanded", String(abierta));
@@ -72,12 +83,12 @@
         f.classList.add("activo");
         var rubro = f.dataset.filtro;
         var cuenta = 0;
-        document.querySelectorAll(".pieza").forEach(function (p) {
+        document.querySelectorAll(".producto").forEach(function (p) {
           var entra = rubro === "Todo" || p.dataset.rubro === rubro;
           p.hidden = !entra;
           if (entra) {
             cuenta++;
-            p.querySelector(".num").textContent = String(cuenta).padStart(2, "0");
+            p.querySelector(".numero-producto").textContent = String(cuenta).padStart(2, "0");
             p.style.transitionDelay = ((cuenta - 1) % 4) * 60 + "ms";
             p.classList.add("visible");
           }
@@ -86,12 +97,12 @@
     });
   }
 
-  var visor = document.querySelector(".visor");
+  var visor = document.querySelector(".vista-producto");
   if (visor) {
     var foto = visor.querySelector("img");
-    var rubro = visor.querySelector(".visor-txt span");
-    var nombre = visor.querySelector(".visor-txt h2");
-    var precio = visor.querySelector(".visor-txt p");
+    var rubro = visor.querySelector(".vista-producto-texto span");
+    var nombre = visor.querySelector(".vista-producto-texto h2");
+    var precio = visor.querySelector(".vista-producto-texto p");
     document.querySelectorAll(".fila").forEach(function (fila) {
       function elegir() {
         document.querySelectorAll(".fila.activa").forEach(function (o) { o.classList.remove("activa"); });
