@@ -881,7 +881,7 @@ footer a:hover {
   }
 
   .letrero-corriendo span {
-    font-size: 6.9rem;
+    font-size: 6.8rem;
   }
   .title h1 {
     font-size: clamp(5rem,26vw,8rem);
@@ -1203,6 +1203,7 @@ footer a:hover {
     border-top: 0;
     background: var(--carbon);
   }
+}
 
 
 @media (max-width: 430px) {
